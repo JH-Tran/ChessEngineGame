@@ -4,7 +4,7 @@ public abstract class Tile {
 	//Created
 	int tileCoordinate;
 	
-	Tile(int titleCoordinate) {
+	Tile(int tileCoordinate) {
 		this.tileCoordinate = tileCoordinate;
 	}
 	
