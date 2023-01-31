@@ -9,7 +9,7 @@ import com.google.common.collect.ImmutableMap;
 public abstract class Tile {
 	
 	protected final int tileCoordinate;
-	private static final Map<Integer,EmptyTile> EMPTY_TILES = createAllPossibleEmptyTiles();
+	private static final Map<Integer,EmptyTile> EMPTY_TILES_CACHE = createAllPossibleEmptyTiles();
 	
 	Tile(int tileCoordinate) {
 		this.tileCoordinate = tileCoordinate;
@@ -21,6 +21,7 @@ public abstract class Tile {
 		for(int i = 0; i < 64; i++) {
 			emptyTileMap.put(i, new EmptyTile(i));
 		}
+		
 		return ImmutableMap.copyOf(emptyTileMap);
 	}
 
