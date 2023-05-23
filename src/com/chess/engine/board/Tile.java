@@ -27,6 +27,10 @@ public abstract class Tile {
 		
 		return ImmutableMap.copyOf(emptyTileMap);
 	}
+	
+	public static Tile createTile(final int tileCoordinate, final Piece piece) {
+		return piece != null ? new OccupiedTile(tileCoordinate, piece) : EMPTY_TILES_CACHE.get(tileCoordinate);
+	}
 
 	public static final class EmptyTile extends Tile {
 		EmptyTile(final int coordinate) {
@@ -42,23 +46,22 @@ public abstract class Tile {
 		public Piece getPiece() {
 			return null;
 		}
-		
-		public static final class OccupiedTile extends Tile {
-			private final Piece pieceOnTile;
+	}
+	public static final class OccupiedTile extends Tile {
+		private final Piece pieceOnTile;
 			
-			OccupiedTile(int titleCoordinate, final Piece pieceOnTile){
-				super(titleCoordinate);
-				this.pieceOnTile = pieceOnTile;
-			}
-				@Override
-				public boolean isTileOccupied() {
-					return true;
-				}
-				
-				@Override
-				public Piece getPiece() {
-					return this.pieceOnTile;
-				}
+		OccupiedTile(int titleCoordinate, final Piece pieceOnTile){
+			super(titleCoordinate);
+			this.pieceOnTile = pieceOnTile;
 		}
+			@Override
+			public boolean isTileOccupied() {
+				return true;
+			}
+				
+			@Override
+			public Piece getPiece() {
+				return this.pieceOnTile;
+			}
 	}
 }
