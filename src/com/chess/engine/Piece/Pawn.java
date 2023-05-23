@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.chess.engine.Alliance;
+import com.chess.engine.Piece.Piece.PieceType;
 import com.chess.engine.board.Board;
 import com.chess.engine.board.BoardUtils;
 import com.chess.engine.board.Move;
@@ -67,5 +68,9 @@ public class Pawn extends Piece{
 		
 		return ImmutableList.copyOf(legalMoves);
 	}
-
+	
+	@Override
+	public String toString() {
+		return PieceType.PAWN.toString();
+	}
 }

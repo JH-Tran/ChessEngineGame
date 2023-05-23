@@ -1,6 +1,7 @@
 package com.chess.engine.Piece;
 
 import com.chess.engine.Alliance;
+import com.chess.engine.Piece.Piece.PieceType;
 import com.chess.engine.board.Board;
 import com.chess.engine.board.BoardUtils;
 import com.chess.engine.board.Move;
@@ -56,6 +57,10 @@ public class Knight extends Piece{
 		return ImmutableList.copyOf(legalMoves);
 	}
 	
+	@Override
+	public String toString() {
+		return PieceType.KNIGHT.toString();
+	}
 	private static boolean isFirstColumnExclusion(final int currentPosition, final int candidateOffset) {
 		return BoardUtils.FIRST_COLUMN[currentPosition] && (candidateOffset == -17 || candidateOffset == -10 || candidateOffset == 6 || candidateOffset == 15);
 	}
